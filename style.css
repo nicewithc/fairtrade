@@ -132,3 +132,39 @@ nav a:hover {
     color: #00e0ff;
     margin-bottom: 15px;
 }
+footer {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow:
+        0 0 5px #0ff,
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff,
+        0 0 80px #0ff;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow:
+            0 0 5px #0ff,
+            0 0 10px #0ff,
+            0 0 20px #0ff,
+            0 0 40px #0ff,
+            0 0 80px #0ff;
+        color: #0ff;
+    }
+    to {
+        text-shadow:
+            0 0 10px #0ff,
+            0 0 20px #0ff,
+            0 0 30px #0ff,
+            0 0 50px #0ff,
+            0 0 100px #0ff;
+        color: #0ff;
+    }
+}
