@@ -1,3 +1,4 @@
+/* Global */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@ body {
     background: radial-gradient(circle at center, #0f0c29, #000000 80%);
     color: #e0e0e0;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* Animated Stars */
@@ -17,14 +19,14 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
     animation: moveStars 60s linear infinite;
     z-index: -1;
 }
 
 @keyframes moveStars {
-    from {background-position: 0 0;}
-    to {background-position: 10000px 5000px;}
+    from { background-position: 0 0; }
+    to { background-position: 10000px 5000px; }
 }
 
 /* Header */
@@ -43,8 +45,7 @@ header {
     height: 180px;
     margin: 30px auto;
     border-radius: 50%;
-    background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-    background-size: cover;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg") center/cover no-repeat;
     animation: spin 20s linear infinite;
     box-shadow: 0 0 40px rgba(0,224,255,0.7);
 }
@@ -54,7 +55,7 @@ header {
     to { transform: rotate(360deg); }
 }
 
-/* Nav */
+/* Navigation */
 nav {
     background: rgba(0,0,0,0.7);
     backdrop-filter: blur(10px);
@@ -63,6 +64,7 @@ nav {
 nav ul {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* verhindert Layout-Break */
     list-style: none;
     padding: 15px;
 }
@@ -75,34 +77,35 @@ nav a {
     color: #00e0ff;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
-    color: white;
+    color: #fff;
     text-shadow: 0 0 15px #00e0ff;
 }
 
-/* Cards Container mit fix eingebautem align-items */
+/* Container für Cards */
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     padding: 60px;
-    align-items: start; /* sorgt für individuelle Höhen je nach Textlänge */
+    align-items: start;
 }
 
-/* Responsive für Tablets */
+/* Responsive */
 @media (max-width: 1200px) {
     .container {
-        grid-template-columns: repeat(2, 1fr);
+        padding: 40px;
+        gap: 25px;
     }
 }
 
-/* Responsive für Handy */
 @media (max-width: 700px) {
     .container {
-        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
     }
 }
 
@@ -113,7 +116,7 @@ nav a:hover {
     padding: 35px;
     border-radius: 20px;
     border: 1px solid rgba(0,224,255,0.3);
-    transition: 0.6s;
+    transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
     opacity: 0;
     transform: translateY(60px);
 }
@@ -124,14 +127,17 @@ nav a:hover {
 }
 
 .card:hover {
-    box-shadow: 0 0 35px rgba(0,224,255,0.6);
     transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(0,224,255,0.6);
 }
 
 .card h2 {
     color: #00e0ff;
     margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
 }
+
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
